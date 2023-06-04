@@ -7,7 +7,7 @@ body {
 	padding: 0 1em 1em 1em;
 }
 
-:global(:lang(zh-HK)) {
+:lang(zh-HK) {
 	font-family: Roboto, 'Source Han Sans C', 'Source Han Sans K', 'Noto Sans CJK KR', sans-serif;
 }
 
