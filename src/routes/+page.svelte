@@ -54,5 +54,5 @@ input[type="submit"] {
 
 	<DataTable results={results}/>
 
-	<p>網站作者：<a href="https://github.com/nk2028">nk2028</a> - 資料來源：漢字音典（眾專家）</p>
+	<p>網站作者：<a href="https://github.com/nk2028/chinese-dialect-pronunciation-atlas-website">nk2028</a> - 資料來源：漢字音典（眾專家）</p>
 </div>

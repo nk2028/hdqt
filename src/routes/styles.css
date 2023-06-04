@@ -16,3 +16,8 @@ body {
 h1 {
 	font-family: Roboto, 'Source Han Serif C', 'Source Han Serif K', 'Noto Serif CJK KR', sans-serif;
 }
+
+a {
+	color: deepskyblue;
+	text-decoration: none;
+}
