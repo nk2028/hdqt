@@ -1,6 +1,8 @@
 {
 	"name": "chinese-dialect-pronunciation-atlas-website",
 	"version": "0.0.1",
+	"type": "module",
+	"private": true,
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -28,6 +30,5 @@
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
 		"vite": "^4.3.0"
-	},
-	"type": "module"
+	}
 }
