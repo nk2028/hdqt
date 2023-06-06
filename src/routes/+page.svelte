@@ -6,7 +6,7 @@
 
 	const fetchData = async () => {
 		if (字頭們.length) {
-			const response = await fetch(`https://hdqt.nk2028.shn.hk/query?string=${字頭們}`);
+			const response = await fetch(`https://chinese-dialect-pronunciation-atlas-beg4zxgxla-wl.a.run.app/query?string=${字頭們}`);
 			results = await response.json() as string[][];
 		}
 	};
