@@ -3,15 +3,18 @@
 
 	let 字頭們 = '';
 	let results = [] as string[][];
+	let pending = false;
 
 	const fetchData = async () => {
 		if (字頭們.length) {
 			const response = await fetch(`https://chinese-dialect-pronunciation-atlas-beg4zxgxla-wl.a.run.app/query?string=${字頭們}`);
 			results = await response.json() as string[][];
 		}
+		pending = false;
 	};
 
 	const handleSubmit = () => {
+		pending = true;
 		fetchData();
 	};
 </script>
@@ -56,6 +59,9 @@ form > * {
 		<input type="submit" value="查詢">
 	</form>
 
+	{#if pending}
+		<p>正在查詢，請稍候……</p>
+	{/if}
 	<DataTable results={results}/>
 
 	<footer>
