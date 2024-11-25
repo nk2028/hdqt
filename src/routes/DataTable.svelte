@@ -11,7 +11,8 @@
 		中原音韻: ['i楊耐思', 'i寧繼福', 'i薛鳳生{音位形式}', 'iunt{音位形式}', 'iunt'],
 		東干語: ['c拼寫', 'i音標'],
 	};
-	const romanizationDialects = ['普通話', '香港', '臺灣', '越南', '朝鮮', '日語吳音', '日語漢音'];
+	const dialectsOfRomanization = ['普通話', '香港', '臺灣', '越南', '朝鮮', '日語吳音', '日語漢音', '日語其他'];
+	const dialectsWithBold = ['中原音韻', '日語吳音', '日語漢音', '日語其他'];
 	function wrapIPA(字音: string) {
 		return `<span lang="zh-Latn-fonipa">${字音}</span>`;
 	}
@@ -23,12 +24,9 @@
 			.split('\t')
 			.map(s => {
 				let [音標, 解釋] = s.replace('}', '').split('{');
+				let isBold = dialectsWithBold.includes(簡稱) && 音標.includes('*');
 				if (headers[簡稱]) {
-					let isBold = false;
-					if (音標.includes('*')) {
-						isBold = true;
-						音標 = 音標.replace(/\*/g, '');
-					}
+					if (isBold) 音標 = 音標.replace(/\*/g, '');
 					音標 = 音標
 						.split('/')
 						.map((s, i) => {
@@ -45,11 +43,13 @@
 						})
 						.filter(Boolean)
 						.join('<br>');
-				} else if (romanizationDialects.includes(簡稱)) {
+				} else if (dialectsOfRomanization.includes(簡稱)) {
 					音標 = wrapRomanization(音標);
 				} else {
 					音標 = wrapIPA(音標);
 				}
+				if (isBold) 音標 = 音標.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
+				音標 = 音標.replace(/\|(.*?)\|/g, '<span style="opacity: 0.5;">$1</span>');
 				解釋 = 解釋?.replace(/ /g, '');
 				if (解釋) {
 					if (headers[簡稱]) 音標 += '<br>';
@@ -58,8 +58,6 @@
 				return 音標;
 			})
 			.join(headers[簡稱] ? '<br><br>' : ' ')
-			.replace(/\*(.*?)\*/g, '<strong>$1</strong>')
-			.replace(/\|(.*?)\|/g, '<span style="opacity: 0.5;">$1</span>')
 			.replace(/\{(.*?)\}/g, '<span class="desc">$1</span>');
 	}
 </script>
