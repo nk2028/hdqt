@@ -1,6 +1,7 @@
 @import url(CharisSIL.css);
 
 body {
+	font-size: 16px;
 	background-color: #111;
 	color: #ccc;
 	margin: 0 auto;
@@ -11,15 +12,20 @@ body {
 	font-family: Roboto, 'Source Han Sans C', 'Source Han Sans K', 'Noto Sans CJK KR', sans-serif;
 }
 
-:lang(zh-x-fonipa) {
-	font-family: 'Charis SIL', 'Source Han Sans C', 'Source Han Sans K', 'Noto Sans CJK KR', serif;
+:lang(zh-Latn), :lang(zh-Cyrl) {
+	font-family: 'Charis SIL', serif;
+	font-style: italic;
 }
 
-h1 {
-	font-family: Roboto, 'Source Han Serif C', 'Source Han Serif K', 'Noto Serif CJK KR', sans-serif;
+:lang(zh-Latn-fonipa) {
+	font-style: normal;
 }
 
 a {
 	color: deepskyblue;
 	text-decoration: none;
+}
+
+.desc {
+	font-size: 0.67em;
 }

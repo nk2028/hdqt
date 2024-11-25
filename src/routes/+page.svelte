@@ -24,7 +24,7 @@
 input {
 	background-color: inherit;
 	color: inherit;
-
+	font-size: 1em;
 }
 
 input[type="text"] {
@@ -46,10 +46,6 @@ form {
 form > * {
 	vertical-align: middle;
 }
-
-footer {
-	font-size: 90%;
-}
 </style>
 
 <div class="page">
@@ -63,6 +59,6 @@ footer {
 	<DataTable results={results}/>
 
 	<footer>
-		<p>網站作者：<a href="https://github.com/nk2028/hdqt">nk2028</a> - 資料來源：漢字音典（眾專家）</p>
+		<p>網站作者：<a href="https://github.com/nk2028/hdqt">nk2028</a> - 資料來源：<a href="https://github.com/osfans/MCPDict">漢字音典（眾專家）</a></p>
 	</footer>
 </div>
